@@ -13,6 +13,9 @@ int main()
     int quantidade = 0;
     int continuar = 1;
 
+    // ADICIONADO: contador de temperaturas acima de 80
+    int temperaturasAcima80 = 0;
+
     char entrada[100];
 
     printf("========================================\n");
@@ -44,6 +47,12 @@ int main()
     maior = temperatura;
     menor = temperatura;
 
+    // ADICIONADO: verifica se a primeira temperatura é acima de 80
+    if (temperatura > 80)
+    {
+        temperaturasAcima80++;
+    }
+
     // Enquanto o usuário quiser continuar
     while (continuar == 1)
     {
@@ -56,6 +65,14 @@ int main()
         else
         {
             printf("Temperatura atual: %.1f °C\n", temperatura);
+        }
+
+        // ADICIONADO: verifica se atingiu 3 temperaturas acima de 80
+        if (temperaturasAcima80 >= 3)
+        {
+            printf("\nALERTA: foram registradas 3 temperaturas acima de 80 °C!\n");
+            printf("O monitoramento sera encerrado automaticamente.\n");
+            break;
         }
 
         // Pergunta se deseja informar outra temperatura
@@ -117,6 +134,12 @@ int main()
         if (temperatura < menor)
         {
             menor = temperatura;
+        }
+
+        // ADICIONADO: conta temperaturas acima de 80
+        if (temperatura > 80)
+        {
+            temperaturasAcima80++;
         }
     }
 
