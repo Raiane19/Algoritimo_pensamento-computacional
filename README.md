@@ -44,7 +44,7 @@ Este repositório reúne as atividades propostas durante a disciplina, organizad
 │   └── 📁 atividade-03/
 │       └── atividade-03.c
 │
-├── 📁 desafios/
+├── 📁 Desafios_Projetos/
 │   ├── 📁 desafio-01/
 │   │   └── desafio-01.c
 │   │
