@@ -260,3 +260,221 @@ int main() {
 
                 break;
             }
+
+            // ==========================================
+            // 11 - TANGENTE
+            // ==========================================
+            case 11: {
+                double graus;
+
+                printf("\nDigite o ângulo em graus: ");
+                scanf("%lf", &graus);
+
+                double radianos = graus_para_radianos(graus);
+
+                printf("\ntan(%.2f°) = %.4f\n",
+                       graus, tan(radianos));
+
+                break;
+            }
+
+            // ==========================================
+            // 12 - GAMMA
+            // ==========================================
+            case 12: {
+                double numero;
+
+                printf("\nDigite um número: ");
+                scanf("%lf", &numero);
+
+                if (numero <= 0) {
+                    printf("\nErro: o número deve ser maior que zero.\n");
+                } else {
+                    printf("\nGamma(%.2f) = %.4f\n",
+                           numero, tgamma(numero));
+                }
+
+                break;
+            }
+
+            // ==========================================
+            // 13 - FATORIAL
+            // ==========================================
+            case 13: {
+                int numero;
+
+                printf("\nDigite um número inteiro não negativo: ");
+                scanf("%d", &numero);
+
+                if (numero < 0) {
+                    printf("\nErro: não existe fatorial de número negativo.\n");
+                } else if (numero > 20) {
+                    printf("\nErro: o resultado ultrapassa o limite de long long.\n");
+                } else {
+                    printf("\n%d! = %lld\n",
+                           numero,
+                           calcular_fatorial(numero));
+                }
+
+                break;
+            }
+
+            // ==========================================
+            // 14 - MDC
+            // ==========================================
+            case 14: {
+                int n1, n2;
+
+                printf("\nDigite o primeiro número inteiro: ");
+                scanf("%d", &n1);
+
+                printf("Digite o segundo número inteiro: ");
+                scanf("%d", &n2);
+
+                printf("\nMDC(%d, %d) = %d\n",
+                       n1, n2, calcular_mdc(n1, n2));
+
+                break;
+            }
+
+            // ==========================================
+            // 15 - MMC
+            // ==========================================
+            case 15: {
+                int n1, n2;
+
+                printf("\nDigite o primeiro número inteiro: ");
+                scanf("%d", &n1);
+
+                printf("Digite o segundo número inteiro: ");
+                scanf("%d", &n2);
+
+                printf("\nMMC(%d, %d) = %lld\n",
+                       n1, n2, calcular_mmc(n1, n2));
+
+                break;
+            }
+
+            // ==========================================
+            // 16 - RAIZ CÚBICA
+            // ==========================================
+            case 16: {
+                double numero;
+
+                printf("\nDigite o número: ");
+                scanf("%lf", &numero);
+
+                printf("\nRaiz cúbica = %.4f\n",
+                       cbrt(numero));
+
+                break;
+            }
+
+            // ==========================================
+            // 17 - LOGARITMO
+            // ==========================================
+            case 17: {
+                double numero, base;
+
+                printf("\nDigite o número: ");
+                scanf("%lf", &numero);
+
+                printf("Digite a base: ");
+                scanf("%lf", &base);
+
+                if (numero <= 0 || base <= 0 || base == 1) {
+                    printf("\nErro: valores inválidos para logaritmo.\n");
+                } else {
+                    double resultado = log(numero) / log(base);
+
+                    printf("\nLog(%.2f, base %.2f) = %.4f\n",
+                           numero, base, resultado);
+                }
+
+                break;
+            }
+
+            // ==========================================
+            // 18 - Valor Absoluto
+            // ==========================================
+            case 18: {
+                double numero;
+            
+                printf("\nDigite um número: ");
+                scanf("%lf", &numero);
+            
+                printf("\nValor absoluto de %.2f = %.2f\n",
+                       numero, fabs(numero));
+            
+                break;
+            }
+
+            // ==========================================
+            // 19 - porcentagem
+            // ==========================================
+            case 19: {
+                double numero, porcentagem;
+            
+                printf("\nDigite o número: ");
+                scanf("%lf", &numero);
+            
+                printf("Digite a porcentagem: ");
+                scanf("%lf", &porcentagem);
+            
+                double resultado = numero * porcentagem / 100.0;
+            
+                printf("\n%.2f%% de %.2f = %.2f\n",
+                       porcentagem, numero, resultado);
+            
+                break;
+            }
+
+            // ==========================================
+            // 20 - Média Aritmetica
+            // ==========================================
+            case 20: {
+                int quantidade;
+                double numero;
+                double soma = 0;
+            
+                printf("\nQuantos números deseja informar? ");
+                scanf("%d", &quantidade);
+            
+                if (quantidade <= 0) {
+                    printf("\nQuantidade inválida.\n");
+                    break;
+                }
+            
+                for (int i = 1; i <= quantidade; i++) {
+                    printf("Digite o %dº número: ", i);
+                    scanf("%lf", &numero);
+            
+                    soma += numero;
+                }
+            
+                printf("\nMédia aritmética = %.2f\n",
+                       soma / quantidade);
+            
+                break;
+            }
+
+            // ==========================================
+            // ENCERRAR
+            // ==========================================
+            case 0:
+                printf("\n=====================================\n");
+                printf("   Calculadora encerrada. Até mais!\n");
+                printf("=====================================\n");
+                break;
+
+            // ==========================================
+            // OPÇÃO INVÁLIDA
+            // ==========================================
+            default:
+                printf("\nErro: opção inválida. Tente novamente.\n");
+        }
+
+    } while (escolha != 0);
+
+    return 0;
+}
